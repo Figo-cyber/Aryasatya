@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Aryasatya Alfarisi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --f1:#cfe2d6;--f2:#eaf2ec;--tx:#1d3a30;--txm:#46635a;--cb:#f6efdc;--ct:#2a2a33;--cm:#5c5a66;
+  --red:#a8342f;--blk:#22232b;--gold:#b8923f;--nav:#1b4a3c;--line:#d6cbae;--sh:rgba(10,30,24,.28);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--f1:#0b241d;--f2:#16453a;--tx:#ece4cc;--txm:#a9c0b5;--gold:#d2ad5a;--nav:#08170f;--sh:rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{color-scheme:dark;--f1:#0b241d;--f2:#16453a;--tx:#ece4cc;--txm:#a9c0b5;--gold:#d2ad5a;--nav:#08170f;--sh:rgba(0,0,0,.5)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--tx);background:radial-gradient(ellipse at 50% 30%,var(--f2),var(--f1) 75%) fixed;line-height:1.65;overflow-x:hidden;min-height:100vh}
+h1,h2,h3,.pf{font-family:'Playfair Display',Georgia,serif}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+.su{width:1em;height:1em;fill:currentColor;stroke:none;vertical-align:-.1em}
+.red{color:var(--red)}.blk{color:var(--blk)}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fx .f{position:absolute;top:-40px;color:var(--gold);opacity:.14;animation:fall linear infinite}
+.fx .f svg{width:100%;height:100%}
+@keyframes fall{to{transform:translateY(115vh) rotate(200deg)}}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@keyframes blink{50%{opacity:.2}}
+@keyframes tk{to{transform:translateX(-50%)}}
+.btn{display:inline-flex;gap:8px;align-items:center;cursor:pointer;font:800 .85rem 'Nunito',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:12px 22px;background:var(--red);color:#fbf3dd;border:2px solid var(--gold);border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s;margin:4px 8px 8px 0}
+.btn:hover{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.35)}
+.btn.alt{background:var(--cb);color:#2a2a33}
+#loading,#welcome{position:fixed;inset:0;z-index:100;background:#08170f;color:#ece4cc;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:20px;transition:opacity .7s,visibility .7s}
+#welcome{z-index:90;background:radial-gradient(circle at 50% 35%,#1d5a49,#08170f)}
+.hide{opacity:0;visibility:hidden}
+.suits{display:flex;gap:16px;font-size:2.4rem;color:#d2ad5a}
+.suits svg{animation:blink 1.2s infinite}.suits svg:nth-child(2){animation-delay:.3s;color:#c25a52}.suits svg:nth-child(3){animation-delay:.6s;color:#c25a52}.suits svg:nth-child(4){animation-delay:.9s}
+.lbar{width:min(320px,78vw);height:12px;border:2px solid #d2ad5a;border-radius:999px;padding:2px}
+.lbar b{display:block;height:100%;width:0;border-radius:999px;background:#d2ad5a}
+#welcome h1{font-size:clamp(1.4rem,5vw,2.4rem);color:#f0e4c0}
+.blink{animation:blink 1.4s infinite;letter-spacing:.3em;font-size:.75rem;color:#d2ad5a;font-weight:800}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:calc(8px + env(safe-area-inset-top,0px)) 5% 8px;background:var(--nav);border-bottom:3px solid var(--gold);color:#ece4cc}
+.brand{font:900 1.15rem 'Playfair Display',serif;display:flex;gap:8px;align-items:center;letter-spacing:.1em}
+.brand svg{color:var(--gold)}
+.links{display:flex;gap:2px;align-items:center;list-style:none}
+.links a{font:800 .78rem 'Nunito',sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;display:block;border-radius:999px}
+.links a:hover,.links a.active{background:var(--gold);color:#1a1a22}
+#theme,#burger{background:transparent;color:var(--gold);border:2px solid var(--gold);border-radius:50%;width:38px;height:38px;font-size:1.1rem;cursor:pointer}
+#burger{display:none}
+section{position:relative;z-index:1;padding:90px 5% 56px;max-width:1100px;margin:0 auto}
+h2{font-size:clamp(1.4rem,3.4vw,2rem);text-align:center;color:var(--tx);margin-bottom:8px;display:flex;gap:12px;justify-content:center;align-items:center}
+h2 .i{color:var(--gold)}
+.orn{display:flex;align-items:center;gap:12px;justify-content:center;color:var(--gold);margin-bottom:12px}
+.orn::before,.orn::after{content:"";width:70px;height:2px;background:var(--gold);opacity:.7}
+.sub{text-align:center;margin-bottom:34px;font-weight:700;color:var(--txm)}
+.pc{position:relative;background:var(--cb);color:var(--ct);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 18px var(--sh);padding:30px 30px}
+.pc .cn{position:absolute;display:flex;flex-direction:column;align-items:center;font:900 .95rem/1 'Playfair Display',serif}
+.pc .cn.tl{left:10px;top:8px}.pc .cn.br{right:10px;bottom:8px;transform:rotate(180deg)}
+.pc .cn .su{font-size:.85rem;margin-top:2px}
+#home{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:120px}
+#home .hi{font-weight:800;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:.85rem}
+#home h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.1;color:var(--tx);margin:10px 0 16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tags span{border:2px solid var(--gold);border-radius:999px;padding:2px 14px;font-weight:800;font-size:.85rem;background:rgba(0,0,0,.08)}
+.lead{max-width:480px;margin-bottom:20px}
+.stage{position:relative;display:flex;justify-content:center;min-height:330px}
+.stage::before{content:"";position:absolute;width:min(330px,76vw);aspect-ratio:1;border-radius:50%;border:2px dashed var(--gold);opacity:.5;bottom:10px}
+#fan{position:relative;width:min(340px,80vw);height:320px;animation:bob 4s ease-in-out infinite}
+.pk{position:absolute;left:50%;bottom:30px;width:112px;height:158px;margin-left:-56px;transform-origin:50% 130%;transform:rotate(var(--r));background:var(--cb);border:1px solid var(--line);border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.4);transition:transform .3s}
+#fan:hover .pk{transform:rotate(calc(var(--r)*1.35))}
+.pk .r{position:absolute;left:8px;top:6px;display:flex;flex-direction:column;align-items:center;font:900 1.15rem/1 'Playfair Display',serif}
+.pk .r .su{font-size:1rem;margin-top:2px}
+.pk .big{position:absolute;inset:0;display:grid;place-items:center;font-size:2.9rem}
+.chip{--c:#a8342f;position:relative;width:84px;height:84px;border-radius:50%;background:repeating-conic-gradient(#f6efdc 0 14deg,var(--c) 14deg 45deg);display:grid;place-items:center;box-shadow:0 5px 10px var(--sh);margin:0 auto}
+.chip::before{content:"";position:absolute;inset:11px;border-radius:50%;background:var(--c);border:2px solid #f6efdc}
+.chip b{position:relative;font:900 1.35rem 'Playfair Display',serif;color:#f6efdc}
+.stage .chip{position:absolute;width:62px;height:62px;animation:bob 3s ease-in-out infinite}
+.stage .chip::before{inset:8px}.stage .chip b{display:none}
+.mini{display:flex;flex-direction:column;align-items:center}
+.av{position:relative;width:96px;height:134px;background:var(--cb);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 16px var(--sh);animation:bob 3.5s ease-in-out infinite;display:grid;place-items:center;font-size:3rem}
+.av .r{position:absolute;left:8px;top:5px;font:900 1.05rem/1 'Playfair Display',serif;text-align:center}
+.av .r .su{display:block;font-size:.9rem}
+.bubble{background:var(--cb);color:var(--ct);border:2px solid var(--gold);border-radius:14px;padding:10px 14px;font-weight:800;max-width:260px;text-align:center;margin-bottom:16px;position:relative;font-size:.92rem}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-11px;margin-left:-8px;border:8px solid transparent;border-top-color:var(--gold);border-bottom:0}
+.tick{overflow:hidden;border-block:3px solid var(--gold);background:var(--nav);color:#ece4cc;position:relative;z-index:1}
+.tick div{display:flex;gap:44px;width:max-content;padding:11px 0;font:800 .8rem 'Nunito',sans-serif;letter-spacing:.14em;animation:tk 30s linear infinite}
+.tick span{display:flex;gap:10px;align-items:center}.tick .su{color:var(--gold)}
+.about{display:grid;grid-template-columns:240px 1fr;gap:26px;align-items:center}
+.col{display:grid;gap:22px}
+.pc h3{font-size:1.15rem;color:var(--red);margin-bottom:10px}
+.pc dl{display:grid;grid-template-columns:110px 1fr;gap:8px 10px}
+.pc dt{color:var(--cm);font-weight:800}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px;margin-top:40px;text-align:center}
+.stats span{display:block;margin-top:10px;font-weight:800;color:var(--tx)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{text-align:center;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.card:hover,.card:focus-visible{transform:translateY(-10px) rotate(-1.5deg);box-shadow:0 16px 26px var(--sh)}
+.card .ico{font-size:2.6rem;color:var(--red)}
+.card h3{margin:8px 0 6px}
+.card p{color:var(--cm);font-size:.95rem}
+.guide{margin-bottom:30px}
+.skill{margin-bottom:16px}
+.skill>div:first-child{display:flex;justify-content:space-between;font-weight:800;margin-bottom:4px}
+.bar{height:16px;border:2px solid var(--ct);border-radius:999px;padding:2px;background:rgba(0,0,0,.08)}
+.bar b{display:block;height:100%;width:0;border-radius:999px;background:repeating-linear-gradient(90deg,var(--red) 0 12px,#8a2a26 12px 15px)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.art{aspect-ratio:4/3;cursor:pointer;position:relative;overflow:hidden;border:6px solid var(--cb);border-radius:12px;box-shadow:0 8px 18px var(--sh);color:#f0e4c0;font:inherit;text-align:left;transition:transform .2s}
+.art:hover,.art:focus-visible{transform:translateY(-8px) rotate(1.2deg)}
+.art .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4.2rem;background-size:auto}
+.art .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;background:linear-gradient(transparent,rgba(8,20,16,.92));color:#ece4cc}
+.art .cap h3{font-size:1rem;color:#d2ad5a}
+.art .cap p{font-size:.85rem}
+#lb{position:fixed;inset:0;z-index:110;background:rgba(5,15,11,.9);display:none;align-items:center;justify-content:center;padding:20px}
+#lb.open{display:flex}
+.lbbox{position:relative;max-width:700px;width:100%;background:var(--cb);color:var(--ct);border:3px solid var(--gold);border-radius:16px;overflow:hidden}
+.lbimg{height:260px;display:flex;align-items:center;justify-content:center;font-size:6rem;color:#f0e4c0}
+.lbtext{padding:16px 24px 22px}
+.lbtext h3{color:var(--red);font-size:1.3rem;margin-bottom:6px}
+.lbtext p{color:var(--cm)}
+.lbx,.lbn{position:absolute;background:var(--gold);border:2px solid #1a1a22;color:#1a1a22;width:42px;height:42px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center}
+.lbx{top:10px;right:10px}.lbn.p{left:10px;top:109px}.lbn.n{right:10px;top:109px}
+.achs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.ach{display:flex;gap:14px;align-items:center;padding:24px 22px;transition:transform .2s}
+.ach:hover{transform:translateY(-5px)}
+.ach .ico{font-size:2rem;flex:none;color:var(--red);width:58px;height:58px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(184,146,63,.15)}
+.ach h3{font-size:1.05rem;color:var(--ct);margin-bottom:2px}
+.ach p{font-size:.9rem;color:var(--cm)}
+.ach small{font-weight:800;font-size:.72rem;letter-spacing:.12em;color:#2f6b50;display:flex;gap:6px;align-items:center;margin-top:2px}
+.ach.locked{background:repeating-linear-gradient(45deg,#24336a 0 8px,#2c3d7c 8px 16px);border:6px solid var(--cb)}
+.ach.locked h3,.ach.locked p{color:#ece4cc}
+.ach.locked .ico{color:#d2ad5a;border-color:#d2ad5a;background:rgba(0,0,0,.25)}
+.ach.locked small{color:#d2ad5a}
+.goalwrap{display:grid;grid-template-columns:1.3fr .7fr;gap:26px;align-items:center}
+.goals{display:grid;gap:18px}
+.goal{display:flex;gap:16px;align-items:center;padding:22px 26px;border-left:8px solid var(--gold)}
+.goal .ico{font-size:2rem;color:var(--red)}
+.goal h3{font-size:1.05rem;color:var(--ct);margin-bottom:2px}
+.goal p{color:var(--cm);font-size:.93rem}
+.contact a.card{display:block}
+.contact .card b{display:block;word-break:break-all}
+footer{position:relative;z-index:1;background:var(--nav);color:#ece4cc;text-align:center;padding:26px 5% calc(32px + env(safe-area-inset-bottom,0px));font-size:.88rem;border-top:3px solid var(--gold)}
+footer .suits{font-size:1.2rem;justify-content:center;margin-bottom:8px}
+footer .suits svg{animation:none}
+#top{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);background:var(--nav);color:var(--gold);font-size:1.4rem;cursor:pointer;opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:center;justify-content:center}
+#top.show{opacity:1;visibility:visible}
+@media(max-width:860px){
+  #home,.about,.goalwrap{grid-template-columns:1fr}
+  #home{text-align:center}.tags{justify-content:center}.lead{margin-inline:auto}
+  .stage{order:-1}
+  #burger{display:block}
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--nav);padding:10px;border-bottom:3px solid var(--gold);display:none}
+  .links.open{display:flex}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="spade" viewBox="0 0 24 24"><path d="M12 2C8 7 4 9.500 4 13.500a4 4 0 0 0 7 2.600c-.2 2-.9 3.400-2 4.900h6c-1.100-1.500-1.800-2.900-2-4.900a4 4 0 0 0 7-2.600C20 9.500 16 7 12 2z"/></symbol>
+<symbol id="heart" viewBox="0 0 24 24"><path d="M12 21C5 15.500 3 12 3 8.800A4.800 4.800 0 0 1 12 6.500 4.800 4.800 0 0 1 21 8.800C21 12 19 15.500 12 21z"/></symbol>
+<symbol id="diamond" viewBox="0 0 24 24"><path d="M12 2l8 10-8 10-8-10z"/></symbol>
+<symbol id="club" viewBox="0 0 24 24"><path d="M12 2a4.500 4.500 0 0 0-3.500 7.300A4.500 4.500 0 1 0 11 15.800c-.2 2-.9 3.400-2 4.200h6c-1.100-.8-1.800-2.200-2-4.200a4.500 4.500 0 1 0 2.500-6.500A4.500 4.500 0 0 0 12 2z"/></symbol>
+<symbol id="book" viewBox="0 0 24 24"><path d="M3 4h6a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H3zM21 4h-6a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h7z"/></symbol>
+<symbol id="game" viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5 2l-2-2H9l-2 2a3 3 0 0 1-5-2v-3a4 4 0 0 1 4-4zM7 11v4M5 13h4M16 12h.01M18 14h.01"/></symbol>
+<symbol id="film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
+<symbol id="trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4v2a3 3 0 0 0 4 3M16 6h4v2a3 3 0 0 1-4 3M12 13v4M8 20h8M10 17h4"/></symbol>
+<symbol id="lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+<symbol id="camera" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l2-3h4l2 3"/><circle cx="12" cy="13" r="3.5"/></symbol>
+<symbol id="music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3zM19 16a3 3 0 1 1-3-3 3 3 0 0 1 3 3z"/></symbol>
+<symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+<symbol id="cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></symbol>
+<symbol id="rocket" viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 5 11l-3 3h-4l-3-3c-1-5 1-9 5-11zM9 17l-3 4M15 17l3 4M12 9h.01"/></symbol>
+<symbol id="medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="5"/><path d="M8 3l4 7 4-7"/></symbol>
+<symbol id="pencil" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19z"/></symbol>
+<symbol id="popcorn" viewBox="0 0 24 24"><path d="M6 10h12l-1.5 10h-9zM6 10a3 3 0 0 1 3-4 3 3 0 0 1 6 0 3 3 0 0 1 3 4M10 10l.5 10M14 10l-.5 10"/></symbol>
+<symbol id="shelf" viewBox="0 0 24 24"><path d="M3 20h18M5 20V6h4v14M10 20V9h4v11M15 20V4h4v16"/></symbol>
+<symbol id="moon" viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10z"/></symbol>
+<symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+<symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+<symbol id="check" viewBox="0 0 24 24"><path d="M5 12l5 5 10-10"/></symbol>
+<symbol id="play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+<symbol id="prev" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+<symbol id="next" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+<symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 15-5 16 0"/></symbol>
+<symbol id="flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
+</defs></svg>
+
+<div id="loading">
+  <div class="suits" data-suits></div>
+  <p class="pf" id="ltip" style="font-size:1.1rem">Mengocok kartu...</p>
+  <div class="lbar"><b id="lfill"></b></div>
+  <div class="pf" id="lpct" style="font-size:1rem">0%</div>
+</div>
+
+<div id="welcome">
+  <div class="suits" data-suits></div>
+  <h1>Selamat datang, Player!</h1>
+  <p style="font-weight:800">Portofolio Aryasatya Alfarisi</p>
+  <button class="btn" id="enter"><i data-i="play"></i> Bagikan Kartu</button>
+  <p class="blink">ALL IN</p>
+</div>
+
+<div class="fx" id="fx"></div>
+
+<nav>
+  <a href="#home" class="brand"><svg class="su"><use href="#spade"/></svg>ARYA</a>
+  <ul class="links" id="links">
+    <li><a href="#home">Beranda</a></li>
+    <li><a href="#profil">Profil</a></li>
+    <li><a href="#hobi">Hobi</a></li>
+    <li><a href="#galeri">Galeri</a></li>
+    <li><a href="#achievement">Achievement</a></li>
+    <li><a href="#goals">Cita-cita</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><button id="theme" aria-label="Ganti tema terang atau gelap"><i data-i="moon"></i></button></li>
+  </ul>
+  <button id="burger" aria-label="Buka menu"><i data-i="menu"></i></button>
+</nav>
+
+<section id="home">
+  <div>
+    <p class="hi">Selamat datang di meja Arya</p>
+    <h1>Aryasatya Alfarisi</h1>
+    <div class="tags"><span>Dipanggil Arya</span><span>Pelajar</span><span>Kelas 9</span></div>
+    <p class="lead">Aku suka membaca buku, bermain game, dan menonton film. Ini portofolio digitalku, dan semua kartu terbaikku ada di sini.</p>
+    <a href="#kontak" class="btn"><i data-i="mail"></i> Hubungi Aku</a>
+    <a href="#achievement" class="btn alt"><i data-i="trophy"></i> Achievement</a>
+  </div>
+  <div class="stage">
+    <div class="chip" style="left:2%;bottom:6px;--c:#a8342f"></div>
+    <div class="chip" style="right:4%;bottom:22px;--c:#2f5f8a;animation-delay:-1.2s"></div>
+    <div class="chip" style="right:14%;bottom:-8px;--c:#22232b;animation-delay:-2s"></div>
+    <div id="fan"></div>
+  </div>
+</section>
+
+<div class="tick"><div id="tick"></div></div>
+
+<section id="profil">
+  <h2><i data-i="user"></i> Profil Player</h2><div class="orn" data-orn></div>
+  <p class="sub">Kartu identitas sang pemain</p>
+  <div class="about">
+    <div class="mini">
+      <div class="bubble">Halo, aku Arya! Senang bertemu denganmu!</div>
+      <div data-av></div>
+    </div>
+    <div class="col">
+      <div class="pc">
+        <h3>Data Diri</h3>
+        <dl>
+          <dt>Nama</dt><dd>Aryasatya Alfarisi</dd>
+          <dt>Panggilan</dt><dd>Arya</dd>
+          <dt>Kelas</dt><dd>Kelas 9</dd>
+          <dt>Sekolah</dt><dd>SMP Nusantara</dd>
+          <dt>Hobi</dt><dd>Baca buku, game, nonton film</dd>
+        </dl>
+      </div>
+      <div class="pc">
+        <h3>Tentang Aku</h3>
+        <p>Aku Arya, pelajar yang gemar mencari cerita seru, entah dari halaman buku, layar game, atau film. Seperti pemain kartu, aku suka berpikir strategis dan terus belajar supaya tangan terbaikku semakin kuat setiap hari.</p>
+      </div>
+    </div>
+  </div>
+  <div class="stats">
+    <div><div class="chip" style="--c:#a8342f"><b data-n="20">0</b></div><span>Buku dibaca</span></div>
+    <div><div class="chip" style="--c:#2f5f8a"><b data-n="15">0</b></div><span>Game tamat</span></div>
+    <div><div class="chip" style="--c:#22232b"><b data-n="50">0</b></div><span>Film ditonton</span></div>
+    <div><div class="chip" style="--c:#6a4a86"><b data-n="9">0</b></div><span>Level kelas</span></div>
+  </div>
+</section>
+
+<section id="hobi">
+  <h2><i data-i="game"></i> Hobi</h2><div class="orn" data-orn></div>
+  <p class="sub">Arahkan kursor atau ketuk kartu, lalu lihat apa kata Arya</p>
+  <div class="mini guide">
+    <div class="bubble" id="say">Pilih salah satu kartu hobiku!</div>
+    <div data-av="K"></div>
+  </div>
+  <div class="grid">
+    <div class="pc card" tabindex="0" data-say="Membaca itu seperti menemukan kartu as baru buat otak!"><div class="ico"><i data-i="book"></i></div><h3>Membaca Buku</h3><p>Menambah ilmu dan imajinasi lewat cerita dari berbagai dunia.</p></div>
+    <div class="pc card" tabindex="0" data-say="Game itu seru! Atur strategi, lalu menangkan setiap ronde!"><div class="ico"><i data-i="game"></i></div><h3>Main Game</h3><p>Menjelajah dunia baru, menyusun strategi, dan mengejar skor tertinggi.</p></div>
+    <div class="pc card" tabindex="0" data-say="Nonton film bareng itu paling asyik, siapkan popcorn!"><div class="ico"><i data-i="film"></i></div><h3>Nonton Film</h3><p>Menikmati kisah, aksi, dan pesan dari berbagai genre film.</p></div>
+  </div>
+
+  <h2 style="margin-top:70px"><svg class="su"><use href="#diamond"/></svg> Tingkat Taruhan</h2><div class="orn" data-orn></div>
+  <p class="sub">Seberapa besar aku menikmati tiap hobi</p>
+  <div class="pc" style="max-width:700px;margin:auto" id="skills">
+    <div class="skill"><div><span><i data-i="game"></i> Game</span><span class="pct">0%</span></div><div class="bar"><b data-w="95"></b></div></div>
+    <div class="skill"><div><span><i data-i="film"></i> Nonton Film</span><span class="pct">0%</span></div><div class="bar"><b data-w="90"></b></div></div>
+    <div class="skill"><div><span><i data-i="book"></i> Membaca Buku</span><span class="pct">0%</span></div><div class="bar"><b data-w="85"></b></div></div>
+  </div>
+</section>
+
+<section id="galeri">
+  <h2><i data-i="camera"></i> Galeri</h2><div class="orn" data-orn></div>
+  <p class="sub">Klik kartu untuk melihat lebih besar dan membaca ceritanya</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+<section id="achievement">
+  <h2><i data-i="trophy"></i> Achievement</h2><div class="orn" data-orn></div>
+  <p class="sub">Kartu yang sudah terbuka dan yang masih tertutup</p>
+  <div class="achs" id="achs"></div>
+</section>
+
+<section id="goals">
+  <h2><i data-i="flag"></i> Cita-cita</h2><div class="orn" data-orn></div>
+  <p class="sub">Misi untuk memenangkan permainan hidup</p>
+  <div class="goalwrap">
+    <div class="goals">
+      <div class="pc goal"><div class="ico"><i data-i="cap"></i></div><div><h3>Lulus Terbaik</h3><p>Menyelesaikan kelas 9 dengan nilai bagus dan sikap yang baik.</p></div></div>
+      <div class="pc goal"><div class="ico"><i data-i="book"></i></div><div><h3>Rajin Membaca</h3><p>Menamatkan lebih banyak buku dan membagikan ilmunya ke teman.</p></div></div>
+      <div class="pc goal"><div class="ico"><i data-i="rocket"></i></div><div><h3>Masa Depan Cerah</h3><p>Menjadi orang berilmu yang bermanfaat bagi keluarga dan sesama.</p></div></div>
+    </div>
+    <div class="mini"><div data-av="Q"></div></div>
+  </div>
+</section>
+
+<section id="kontak" class="contact">
+  <h2><i data-i="mail"></i> Kontak</h2><div class="orn" data-orn></div>
+  <p class="sub">Ayo berteman, kirim pesan kapan saja</p>
+  <div class="grid">
+    <a class="pc card" href="https://instagram.com/arya.contoh" target="_blank" rel="noopener"><div class="ico"><i data-i="camera"></i></div><h3>Instagram</h3><b>@arya.contoh</b></a>
+    <a class="pc card" href="https://www.tiktok.com/@arya_contoh" target="_blank" rel="noopener"><div class="ico"><i data-i="music"></i></div><h3>TikTok</h3><b>@arya_contoh</b></a>
+    <a class="pc card" href="mailto:arya.contoh@email.com"><div class="ico"><i data-i="mail"></i></div><h3>Email</h3><b>arya.contoh@email.com</b></a>
+  </div>
+  <div class="mini" style="margin-top:46px">
+    <div class="bubble">Sampai jumpa di meja berikutnya! Hubungi aku ya!</div>
+    <div data-av="J"></div>
+  </div>
+</section>
+
+<footer><div class="suits" data-suits></div>© 2026 Aryasatya Alfarisi<br>Tema terinspirasi permainan kartu remi dan poker. Font: Google Fonts.</footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Detail galeri">
+  <div class="lbbox">
+    <button class="lbx" id="lbx" aria-label="Tutup"><i data-i="x"></i></button>
+    <button class="lbn p" id="lbp" aria-label="Sebelumnya"><i data-i="prev"></i></button>
+    <button class="lbn n" id="lbn" aria-label="Berikutnya"><i data-i="next"></i></button>
+    <div class="lbimg" id="lbimg"></div>
+    <div class="lbtext"><h3 id="lbt"></h3><p id="lbd"></p></div>
+  </div>
+</div>
+<button id="top" aria-label="Kembali ke atas"><i data-i="up"></i></button>
+
+<script>
+const ic=n=>'<svg class="i"><use href="#'+n+'"/></svg>';
+const sv=n=>'<svg class="su"><use href="#'+n+'"/></svg>';
+const SU=['spade','heart','diamond','club'],isR=s=>s==='heart'||s==='diamond';
+const rI=r=>r.querySelectorAll('i[data-i]').forEach(e=>{e.outerHTML=ic(e.dataset.i)});
+rI(document);
+document.querySelectorAll('[data-suits]').forEach(e=>e.innerHTML=SU.map(sv).join(''));
+document.querySelectorAll('[data-orn]').forEach(e=>e.innerHTML=sv('diamond'));
+// Kipas kartu di beranda
+const hand=[['10','club'],['J','diamond'],['Q','heart'],['K','spade'],['A','spade']];
+document.getElementById('fan').innerHTML=hand.map((c,i)=>'<div class="pk '+(isR(c[1])?'red':'blk')+'" style="--r:'+((i-2)*14)+'deg"><div class="r">'+c[0]+sv(c[1])+'</div><div class="big">'+sv(c[1])+'</div></div>').join('');
+// Kartu avatar
+document.querySelectorAll('[data-av]').forEach((e,i)=>{const r=e.dataset.av||'A',s=SU[i%4];
+  e.className='av '+(isR(s)?'red':'blk');e.innerHTML='<div class="r">'+r+sv(s)+'</div>'+sv(s)});
+// Indeks sudut pada kartu panel
+document.querySelectorAll('.pc').forEach((p,i)=>{const r=['A','K','Q','J','10','9'][i%6],s=SU[i%4];
+  const h='<span class="cn %P '+(isR(s)?'red':'blk')+'">'+r+sv(s)+'</span>';
+  p.insertAdjacentHTML('afterbegin',h.replace('%P','tl')+h.replace('%P','br'))});
+// Teks berjalan
+const items=[['book','MEMBACA BUKU'],['game','MAIN GAME'],['film','NONTON FILM']];
+let t='';for(let k=0;k<2;k++)items.forEach((x,i)=>{t+='<span>'+ic(x[0])+' '+x[1]+'</span><span>'+sv(SU[i%4])+'</span>'});
+document.getElementById('tick').innerHTML=t+t;
+// Latar: suit jatuh
+const fx=document.getElementById('fx');
+for(let i=0;i<14;i++){const f=document.createElement('div');f.className='f';f.innerHTML=sv(SU[i%4]);const z=18+Math.random()*26;
+  f.style.cssText='left:'+Math.random()*100+'%;width:'+z+'px;height:'+z+'px;animation-duration:'+(16+Math.random()*16)+'s;animation-delay:'+(-Math.random()*25)+'s';fx.appendChild(f)}
+// Loading & welcome
+(function(){
+  const L=document.getElementById('loading'),f=document.getElementById('lfill'),p=document.getElementById('lpct'),t=document.getElementById('ltip');
+  const tips=['Mengocok kartu...','Membagikan kartu...','Menata chip...','Siap bermain!'],t0=performance.now();
+  const step=n=>{const v=Math.min((n-t0)/2200,1)*100;f.style.width=v+'%';p.textContent=Math.floor(v)+'%';t.textContent=tips[Math.min(3,Math.floor(v/26))];
+    if(v>=100)setTimeout(()=>L.classList.add('hide'),300);else requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+})();
+document.getElementById('enter').onclick=()=>document.getElementById('welcome').classList.add('hide');
+// Menu & tema
+const links=document.getElementById('links');
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const root=document.documentElement,tb=document.getElementById('theme');
+const isDark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+const syncT=()=>tb.innerHTML=ic(isDark()?'sun':'moon');syncT();
+tb.onclick=()=>{root.dataset.theme=isDark()?'light':'dark';syncT()};
+const tp=document.getElementById('top');
+addEventListener('scroll',()=>tp.classList.toggle('show',scrollY>400));
+tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+const secs=[...document.querySelectorAll('section')],navA=[...links.querySelectorAll('a')];
+addEventListener('scroll',()=>{let cur=secs[0].id;secs.forEach(s=>{if(scrollY>=s.offsetTop-140)cur=s.id});navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur))});
+// Karakter bicara
+const say=document.getElementById('say');
+document.querySelectorAll('#hobi .card').forEach(c=>{const f=()=>say.textContent=c.dataset.say;['mouseenter','focus','click'].forEach(e=>c.addEventListener(e,f))});
+// Bar hobi
+const skills=[...document.querySelectorAll('.skill')];
+function run(sk,d){const b=sk.querySelector('b'),p=sk.querySelector('.pct'),to=+b.dataset.w,t0=performance.now()+d;cancelAnimationFrame(sk._r);
+  const s=t=>{const k=Math.min(Math.max((t-t0)/1300,0),1),e=1-Math.pow(1-k,3);b.style.width=to*e+'%';p.textContent=Math.round(to*e)+'%';if(k<1)sk._r=requestAnimationFrame(s)};sk._r=requestAnimationFrame(s)}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)skills.forEach((s,i)=>run(s,i*180));else skills.forEach(s=>{cancelAnimationFrame(s._r);s.querySelector('b').style.width='0';s.querySelector('.pct').textContent='0%'})}),{threshold:.25}).observe(document.getElementById('skills'));
+// Hitung statistik
+document.querySelectorAll('[data-n]').forEach(n=>new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const to=+n.dataset.n,t0=performance.now();
+  const s=t=>{const k=Math.min((t-t0)/1300,1);n.textContent=Math.round(to*k);if(k<1)requestAnimationFrame(s)};requestAnimationFrame(s)}),{threshold:.5}).observe(n));
+// Galeri
+const works=[
+  {t:'Buku Favorit',d:'Buku yang paling bikin aku lupa waktu saat membacanya.',i:'book',c:'linear-gradient(135deg,#7a3f48,#a8686a)'},
+  {t:'Game Terbaik',d:'Game yang paling sering kumainkan bersama teman.',i:'game',c:'linear-gradient(135deg,#2f5f8a,#4f86b0)'},
+  {t:'Film Pilihan',d:'Film dengan cerita paling seru yang pernah kutonton.',i:'film',c:'linear-gradient(135deg,#503a78,#7a60a0)'},
+  {t:'Skor Tertinggi',d:'Momen saat aku berhasil memecahkan rekor skor sendiri.',i:'medal',c:'linear-gradient(135deg,#2f6b50,#5a9a7c)'},
+  {t:'Rak Buku',d:'Koleksi bacaan yang terus bertambah di rak kamarku.',i:'shelf',c:'linear-gradient(135deg,#7a4e30,#a87a52)'},
+  {t:'Malam Nonton',d:'Nonton film bareng keluarga sambil makan popcorn.',i:'popcorn',c:'linear-gradient(135deg,#2c3a6e,#4d5c96)'}
+];
+const gal=document.getElementById('gal'),lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbt=document.getElementById('lbt'),lbd=document.getElementById('lbd');
+let cur=0;
+works.forEach((w,i)=>{const b=document.createElement('button');b.className='art';b.type='button';
+  b.innerHTML='<div class="ph" style="background-image:'+w.c+'">'+ic(w.i)+'</div><div class="cap"><h3>'+w.t+'</h3><p>'+w.d+'</p></div>';
+  b.onclick=()=>openLb(i);gal.appendChild(b)});
+function openLb(i){cur=(i+works.length)%works.length;const w=works[cur];lbimg.style.background=w.c;lbimg.innerHTML=ic(w.i);lbt.textContent=w.t;lbd.textContent=w.d;lb.classList.add('open')}
+const closeLb=()=>lb.classList.remove('open');
+document.getElementById('lbx').onclick=closeLb;
+document.getElementById('lbp').onclick=()=>openLb(cur-1);
+document.getElementById('lbn').onclick=()=>openLb(cur+1);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')openLb(cur-1);if(e.key==='ArrowRight')openLb(cur+1)});
+// Achievement (kartu tertutup = masih terkunci)
+const achs=[
+  {i:'book',t:'Kutu Buku',d:'Menamatkan 20 buku bacaan.',u:1},
+  {i:'game',t:'Gamer Sejati',d:'Menyelesaikan game favorit sampai tamat.',u:1},
+  {i:'film',t:'Kritikus Film',d:'Menonton 50 film dari berbagai genre.',u:1},
+  {i:'medal',t:'Juara Kelas',d:'Masuk 10 besar di kelas.',u:1},
+  {i:'pencil',t:'Penulis Muda',d:'Menulis ulasan buku atau film pertamaku.',u:0},
+  {i:'trophy',t:'Raja Meja',d:'Lulus kelas 9 dengan hasil terbaik.',u:0}
+];
+const ac=document.getElementById('achs');
+achs.forEach(a=>{const d=document.createElement('div');d.className='pc ach'+(a.u?'':' locked');
+  d.innerHTML='<div class="ico">'+ic(a.u?a.i:'lock')+'</div><div><h3>'+a.t+'</h3><p>'+a.d+'</p><small>'+(a.u?ic('check')+' TERBUKA':ic('lock')+' TERTUTUP')+'</small></div>';ac.appendChild(d)});
+// Sudut kartu untuk achievement/ goal dibuat setelah elemen dinamis
+ac.querySelectorAll('.pc').forEach((p,i)=>{const r=['A','K','Q','J','10','9'][i%6],s=SU[i%4];
+  const h='<span class="cn %P '+(isR(s)&&!p.classList.contains('locked')?'red':'blk')+'" '+(p.classList.contains('locked')?'style="color:#d2ad5a"':'')+'>'+r+sv(s)+'</span>';
+  p.insertAdjacentHTML('afterbegin',h.replace('%P','tl')+h.replace('%P','br'))});
+</script>
+</body>
+</html>
